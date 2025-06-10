@@ -32,12 +32,6 @@ const createNewWorkout = (newWorkout) => {
         message: `Workout with the name '${newWorkout.name}' already exists`,
       };
     }
-    try {
-      DB.workouts.push(newWorkout);
-      saveToDatabase(DB);
-    } catch (error) {
-      throw { status: 500, message: error?.message || error };
-    }
     DB.workouts.push(newWorkout);
     saveToDatabase(DB);
     return newWorkout;
